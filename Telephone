@@ -1,0 +1,72 @@
+class Main {
+    public static void main(String[] args) {
+        Phone phone = new babushkaPhone(43234, "Nokia",200);
+        phone.displayInfo();
+        Phone phone2 = new SmartPhone(45322, "Iphone",400);
+        phone2.receiveCall("Обама");
+        Phone phone3 = new Phone(86842, "Blackberry",351);
+        System.out.println(phone3.getNumber());
+    }
+
+}
+
+class Phone{
+    int serialNumber;
+    String model;
+    int weight;
+    Phone(int serialNumber, String model, int weight){
+        this.serialNumber = serialNumber;
+        this.weight = weight;
+        this.model = model;
+    }
+    Phone(int serialNumber){
+        this.serialNumber = serialNumber;
+        model = "Iphone";
+        weight = 10;
+    }
+    Phone(String model){
+        this.model = model;
+        serialNumber = 12345;
+        weight = 10;
+    }
+    int getNumber(){
+        return serialNumber;
+    }
+
+    void displayInfo(){
+        System.out.println(serialNumber + " " + model + " " + weight);
+    }
+    void receiveCall(String name){
+        System.out.println("Вам звонит " + name);
+    }
+
+}
+class babushkaPhone extends Phone{
+    int number = 891236123;
+    String model = "Iphon";
+    String Colorphonecase = "Green";
+    void timer(){System.out.println("Будильник");}
+
+
+    public babushkaPhone(int serialNumber, String model, int weight){
+        super(serialNumber, model, weight);
+    }
+
+    @Override
+    void receiveCall(String name) {
+        System.out.println("Телефон вибрирует");
+    }
+}
+class SmartPhone extends Phone{
+    int number = 892139862;
+    String model = "Iphone";
+    int charge = 100;
+    public SmartPhone(int serialNumber, String model, int weight) {
+        super(serialNumber, model, weight);
+    }
+    void sendMessage(){
+        System.out.println("Сообщение отправлено");
+    }
+    void rington(){
+        System.out.println();}
+}
